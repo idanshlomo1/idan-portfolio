@@ -38,7 +38,7 @@ const Navbar = () => {
             <MaxWidthWrapper className="max-w-screen-lg">
                 {/* md+ screens nav */}
                 <div className="hidden md:block">
-                    <div className="flex justify-between items-center border-gray-400 p-4 m-4 border-[1px] rounded-full ">
+                    <div className="flex justify-between items-center border-gray-400 p-4 m-4 border-[1px] rounded-3xl ">
                         <Link
                             href="/">
                             <Image
@@ -79,7 +79,7 @@ const Navbar = () => {
 
                 {/* sm screen nav */}
                 <div className="md:hidden">
-                    <div className="flex justify-between items-center border-gray-400 p-4 m-4 border-[1px]  rounded-full ">
+                    <div className="flex justify-between items-center border-gray-400 p-4 m-4 border-[1px]  rounded-3xl ">
                         <Link
                             href="/">
                             <Image
@@ -106,33 +106,32 @@ const Navbar = () => {
 
                     {open &&
                         <div className="flex flex-col justify-between items-center border-gray-400 p-4 m-4 border-[1px]  rounded-3xl ">
-
-
-
-                            <div className="mx-4 flex flex-col text-center">
-                                {linksData.map((linkData) => (
+                            <div className=" flex flex-col px-4 w-full">
+                                {linksData.map((linkData, index) => (
                                     <Link
-                                        onClick={() => { setOpen(prev => !prev) }}
-                                        className="text-gray-400 hover:text-white duration-200 mx-4 my-4 text-xl"
+                                        onClick={() => { setOpen(prev => !prev); }}
+                                        className={`text-gray-400 hover:text-white duration-200  py-4 w-full ${index !== 0 ? "border-t-[1px] border-gray-500" : ""
+                                            }`}
                                         key={linkData.title}
                                         href={linkData.href}
                                     >
-                                        {linkData.title}
+                                        <div className="my-2">
+                                            {linkData.title}
+                                        </div>
                                     </Link>
                                 ))}
+
                             </div>
 
                             <Button
-                                className="rounded-full mx-4 flex items-center mt-4 py-6 w-full text-xl"
+                                className="rounded-full mx-4 flex items-center mt-4 w-full "
                                 variant={"default"}
                             >
-                                <p>
-                                    Download CV
-                                </p>
+                                <p>Download CV</p>
                                 <BsBoxArrowInDown size={20} className="ml-2" />
-
                             </Button>
                         </div>
+
                     }
 
                 </div>
