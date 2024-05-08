@@ -33,6 +33,16 @@ const Navbar = () => {
     ]
 
 
+    const handleDownloadCV = () => {
+        const link = document.createElement('a');
+        link.href = '/CV_Idan_Shlomo.pdf';
+        link.download = 'CV_Idan_Shlomo.pdf';  // This can be omitted if you want the download attribute to take the name from the href
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
+
     return (
         <div className="fixed top-0 left-0 right-0 z-10">
             <MaxWidthWrapper className="max-w-screen-lg">
@@ -66,6 +76,8 @@ const Navbar = () => {
                         <Button
                             className="rounded-full mx-4 flex items-center"
                             variant={"default"}
+                            onClick={handleDownloadCV}
+
                         >
                             <p>
                                 Download CV
@@ -126,6 +138,8 @@ const Navbar = () => {
                             <Button
                                 className="rounded-full mx-4 flex items-center mt-4 w-full "
                                 variant={"default"}
+                                onClick={handleDownloadCV}
+
                             >
                                 <p>Download CV</p>
                                 <BsBoxArrowInDown size={20} className="ml-2" />
