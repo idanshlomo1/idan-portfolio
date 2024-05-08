@@ -44,10 +44,10 @@ const Navbar = () => {
 
 
     return (
-        <div className="fixed top-0 left-0 right-0 z-navbar">
+        <div className="fixed top-0 left-0 right-0 ">
             <MaxWidthWrapper className="max-w-screen-lg">
                 {/* md+ screens nav */}
-                <div className="hidden md:block">
+                <div className="hidden md:block ">
                     <div className="flex justify-between items-center border-gray-400 p-4 m-4 border-[1px] rounded-3xl ">
                         <Link
                             href="/">
@@ -59,7 +59,7 @@ const Navbar = () => {
                                 src="/logo.png"
                             />
                         </Link>
-
+idan
 
                         <div className="mx-4">
                             {linksData.map((linkData) => (
@@ -90,7 +90,7 @@ const Navbar = () => {
 
 
                 {/* sm screen nav */}
-                <div className="md:hidden">
+                <div className="md:hidden ">
                     <div className="flex justify-between items-center border-gray-400 p-4 m-4 border-[1px]  rounded-3xl ">
                         <Link
                             href="/">

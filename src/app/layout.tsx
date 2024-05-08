@@ -37,7 +37,7 @@ export default function RootLayout({
         >
           <Navbar />
           {/* remove min-h-screen */}
-          <div className="bg-gradient-to-tr from-black to-[#333] min-h-screen">
+          <div className=" min-h-screen">
             {children}
           </div>
           <Toaster position="top-center" richColors />
