@@ -5,6 +5,7 @@ import { Button } from "./ui/button"
 import { BsBoxArrowInDown } from "react-icons/bs";
 import Link from "next/link";
 import { useState } from "react";
+import { ModeToggle } from "./mode-toggle";
 
 const Navbar = () => {
 
@@ -47,8 +48,8 @@ const Navbar = () => {
         <div className="fixed top-0 left-0 right-0 ">
             <MaxWidthWrapper className="max-w-screen-lg">
                 {/* md+ screens nav */}
-                <div className="hidden md:block ">
-                    <div className="flex justify-between items-center border-gray-400 p-4 m-4 border-[1px] rounded-3xl ">
+                <div className="hidden md:block   ">
+                    <div className="flex justify-between items-center border-secondary p-4 m-4 border-[1px] rounded-full bg-background ">
                         <Link
                             href="/">
                             <Image
@@ -59,12 +60,12 @@ const Navbar = () => {
                                 src="/logo.png"
                             />
                         </Link>
-idan
+
 
                         <div className="mx-4">
                             {linksData.map((linkData) => (
                                 <Link
-                                    className="text-gray-400 hover:text-white duration-200 mx-4"
+                                    className="text-muted-foreground hover:text-primary duration-200 mx-4"
                                     key={linkData.title}
                                     href={linkData.href}
                                 >
@@ -73,7 +74,7 @@ idan
                             ))}
                         </div>
 
-                        <Button
+                        {/* <Button
                             className="rounded-full mx-4 flex items-center"
                             variant={"default"}
                             onClick={handleDownloadCV}
@@ -84,14 +85,16 @@ idan
                             </p>
                             <BsBoxArrowInDown size={20} className="ml-2" />
 
-                        </Button>
+                        </Button> */}
+
+                        <ModeToggle />
                     </div>
                 </div>
 
 
                 {/* sm screen nav */}
-                <div className="md:hidden ">
-                    <div className="flex justify-between items-center border-gray-400 p-4 m-4 border-[1px]  rounded-3xl ">
+                <div className="md:hidden  ">
+                    <div className="flex justify-between items-center border-secondary p-4 m-4 border-[1px]  rounded-full bg-background ">
                         <Link
                             href="/">
                             <Image
@@ -117,12 +120,12 @@ idan
 
 
                     {open &&
-                        <div className="flex flex-col justify-between items-center border-gray-400 p-4 m-4 border-[1px]  rounded-3xl ">
+                        <div className="flex flex-col justify-between items-center border-secondary p-4 m-4 border-[1px] bg-background  rounded-3xl ">
                             <div className=" flex flex-col px-4 w-full">
                                 {linksData.map((linkData, index) => (
                                     <Link
                                         onClick={() => { setOpen(prev => !prev); }}
-                                        className={`text-gray-400 hover:text-white duration-200  py-4 w-full ${index !== 0 ? "border-t-[1px] border-gray-500" : ""
+                                        className={`text-muted-foreground hover:text-primary duration-200  py-4 w-full ${index !== 0 ? "border-t-[1px] border-secondary" : ""
                                             }`}
                                         key={linkData.title}
                                         href={linkData.href}
