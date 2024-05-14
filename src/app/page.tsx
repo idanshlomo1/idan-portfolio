@@ -69,7 +69,7 @@ const Home: React.FC = () => {
             <h1 className="text-5xl text-center lg:text-7xl font-light">
               About
             </h1>
-            <div className="bgGradient h-[1px] mt-4 rounded-full max-w-sm mx-auto">
+            <div className="bgGradient h-[1px] mt-4 rounded-full max-w-md mx-auto">
             </div>
             <p className="text-muted-foreground text-center md:text-left  mt-4 ">
               As a 19-year-old full-stack developer, I excel in building dynamic web applications that bridge user needs with cutting-edge technology. My drive for innovation and mastery in coding fuels my passion for delivering impactful solutions.            </p>

@@ -4,13 +4,14 @@ import MaxWidthWrapper from "./MaxWidthWrapper"
 import { Button } from "./ui/button"
 import { BsBoxArrowInDown } from "react-icons/bs";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ModeToggle } from "./mode-toggle";
 
 const Navbar = () => {
 
 
     const [open, setOpen] = useState(false)
+    const navbarRef = useRef<HTMLDivElement>(null);
     const session = true;
     const isAdmin = true;
 
@@ -33,6 +34,25 @@ const Navbar = () => {
         },
     ]
 
+    useEffect(() => {
+        if (!open) return; // Only attach the listener if the menu is open
+
+        // Type the event parameter as MouseEvent
+        function handleClickOutside(event: MouseEvent) {
+            // Type guard to ensure the target is an Element
+            if (navbarRef.current && event.target instanceof Element && !navbarRef.current.contains(event.target)) {
+                setOpen(false);
+            }
+        }
+
+        // Bind the event listener
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            // Unbind the event listener on clean up
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [open]); // Attach or detach the event listener based on 'open' state
+
 
     const handleDownloadCV = () => {
         const link = document.createElement('a');
@@ -45,11 +65,11 @@ const Navbar = () => {
 
 
     return (
-        <div className="fixed top-0 left-0 right-0 ">
+        <div  className="fixed top-0 left-0 right-0 ">
             <MaxWidthWrapper className="max-w-screen-lg">
                 {/* md+ screens nav */}
                 <div className="hidden md:block   ">
-                    <div className="flex justify-between items-center border-secondary p-4 m-4 border-[1px] rounded-full bg-background ">
+                    <div className="flex justify-between items-center border-muted-foreground p-4 m-4 border-[1px] rounded-full bg-background ">
                         <Link
                             href="/">
                             <Image
@@ -93,8 +113,8 @@ const Navbar = () => {
 
 
                 {/* sm screen nav */}
-                <div className="md:hidden  ">
-                    <div className="flex justify-between items-center border-secondary p-4 m-4 border-[1px]  rounded-full bg-background ">
+                <div ref={navbarRef} className="md:hidden  ">
+                    <div className="flex justify-between items-center border-muted-foreground p-4 m-4 border-[1px]  rounded-full bg-background ">
                         <Link
                             href="/">
                             <Image
@@ -120,7 +140,7 @@ const Navbar = () => {
 
 
                     {open &&
-                        <div className="flex flex-col justify-between items-center border-secondary p-4 m-4 border-[1px] bg-background  rounded-3xl ">
+                        <div className="flex flex-col justify-between items-center border-muted-foreground p-4 m-4 border-[1px] bg-background  rounded-3xl ">
                             <div className=" flex flex-col px-4 w-full">
                                 {linksData.map((linkData, index) => (
                                     <Link
