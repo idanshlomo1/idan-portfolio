@@ -11,7 +11,7 @@ const Navbar = () => {
 
 
     const [open, setOpen] = useState(false)
-    const navbarRef = useRef<HTMLDivElement>(null);
+
     const session = true;
     const isAdmin = true;
 
@@ -34,25 +34,6 @@ const Navbar = () => {
         },
     ]
 
-    useEffect(() => {
-        if (!open) return; // Only attach the listener if the menu is open
-
-        // Type the event parameter as MouseEvent
-        function handleClickOutside(event: MouseEvent) {
-            // Type guard to ensure the target is an Element
-            if (navbarRef.current && event.target instanceof Element && !navbarRef.current.contains(event.target)) {
-                setOpen(false);
-            }
-        }
-
-        // Bind the event listener
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            // Unbind the event listener on clean up
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, [open]); // Attach or detach the event listener based on 'open' state
-
 
     const handleDownloadCV = () => {
         const link = document.createElement('a');
@@ -65,7 +46,7 @@ const Navbar = () => {
 
 
     return (
-        <div  className="fixed top-0 left-0 right-0 ">
+        <div className="fixed top-0 left-0 right-0 ">
             <MaxWidthWrapper className="max-w-screen-lg">
                 {/* md+ screens nav */}
                 <div className="hidden md:block   ">
@@ -113,7 +94,7 @@ const Navbar = () => {
 
 
                 {/* sm screen nav */}
-                <div ref={navbarRef} className="md:hidden  ">
+                <div className="md:hidden   ">
                     <div className="flex justify-between items-center border-muted-foreground p-4 m-4 border-[1px]  rounded-full bg-background ">
                         <Link
                             href="/">
@@ -125,6 +106,7 @@ const Navbar = () => {
                                 src="/logo.png"
                             />
                         </Link>
+
 
                         <label className="hamburger">
                             <input
@@ -158,6 +140,11 @@ const Navbar = () => {
 
                             </div>
 
+
+
+
+
+
                             <Button
                                 className="rounded-full mx-4 flex items-center mt-4 w-full "
                                 variant={"default"}
@@ -167,6 +154,12 @@ const Navbar = () => {
                                 <p>Download CV</p>
                                 <BsBoxArrowInDown size={20} className="ml-2" />
                             </Button>
+
+                            <div className="mt-4">
+                                <ModeToggle />
+
+                            </div>
+
                         </div>
 
                     }
