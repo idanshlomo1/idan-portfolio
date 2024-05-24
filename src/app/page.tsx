@@ -21,9 +21,9 @@ const Home: React.FC = () => {
 
 
     <main>
-      <MaxWidthWrapper className="pt-40 h-screen">
+      <MaxWidthWrapper>
         {/* Hero */}
-        <div>
+        <div id="Home" className="pt-40 min-h-screen">
           <div className="max-w-2xl">
             <h1 className="text-5xl text-center md:text-left lg:text-7xl font-light">
               Idan Shlomo
@@ -65,7 +65,7 @@ const Home: React.FC = () => {
         </div>
 
         {/* About */}
-        <div className="pt-40 h-screen">
+        <div id="About" className="pt-40 min-h-screen">
           <div className="max-w-2xl mx-auto">
             <h1 className="text-5xl text-center lg:text-7xl font-light">
               About

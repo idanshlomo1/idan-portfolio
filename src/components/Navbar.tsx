@@ -9,7 +9,6 @@ import { ModeToggle } from "./mode-toggle";
 
 const Navbar = () => {
 
-
     const [open, setOpen] = useState(false)
 
     const session = true;
@@ -18,19 +17,15 @@ const Navbar = () => {
     const linksData = [
         {
             title: "Home",
-            href: "/"
         },
         {
             title: "About",
-            href: "/about"
         },
         {
             title: "Projects",
-            href: "/projects"
         },
         {
             title: "Contact",
-            href: "/contact"
         },
     ]
 
@@ -68,7 +63,7 @@ const Navbar = () => {
                                 <Link
                                     className="text-muted-foreground hover:text-primary duration-200 mx-4"
                                     key={linkData.title}
-                                    href={linkData.href}
+                                    href={`#${linkData.title}`}
                                 >
                                     {linkData.title}
                                 </Link>
@@ -110,14 +105,16 @@ const Navbar = () => {
 
                         <label className="hamburger">
                             <input
-                                onClick={() => { setOpen(prev => !prev) }}
+                                onClick={() => setOpen(prev => !prev)}
                                 type="checkbox"
+                                checked={open} 
                             />
-                            <svg viewBox="0 0 32 32">
+                            <svg viewBox="0 0 32 32" className={`burger-icon ${open ? 'open' : ''}`}>
                                 <path className="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
                                 <path className="line" d="M7 16 27 16"></path>
                             </svg>
                         </label>
+
                     </div>
 
 
@@ -130,7 +127,7 @@ const Navbar = () => {
                                         className={`text-muted-foreground hover:text-primary duration-200  py-4 w-full ${index !== 0 ? "border-t-[1px] border-secondary" : ""
                                             }`}
                                         key={linkData.title}
-                                        href={linkData.href}
+                                        href={`#${linkData.title}`}
                                     >
                                         <div className="my-2">
                                             {linkData.title}
