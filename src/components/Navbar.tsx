@@ -45,7 +45,7 @@ const Navbar = () => {
             <MaxWidthWrapper className="max-w-screen-lg z-navbar ">
                 {/* md+ screens nav */}
                 <div className="hidden md:block  ">
-                    <div className="flex justify-between items-center border-muted-foreground p-4 m-4 border-[1px] rounded-full bg-background ">
+                    <div className="flex justify-between items-center border-secondary p-4 m-4 border-2 rounded-full bg-background ">
                         <Link
                             href="/">
                             <Image
@@ -90,7 +90,7 @@ const Navbar = () => {
 
                 {/* sm screen nav */}
                 <div className="md:hidden  ">
-                    <div className="flex justify-between items-center border-muted-foreground p-4 m-4 border-[1px]  rounded-full bg-background ">
+                    <div className="flex justify-between items-center border-secondary p-4 m-4 border-2  rounded-full bg-background ">
                         <Link
                             href="/">
                             <Image
@@ -119,12 +119,12 @@ const Navbar = () => {
 
 
                     {open &&
-                        <div className="flex flex-col justify-between items-center border-muted-foreground p-4 m-4 border-[1px] bg-background  rounded-3xl ">
+                        <div className="flex flex-col justify-between items-center border-secondary p-4 m-4 border-2 bg-background  rounded-3xl ">
                             <div className=" flex flex-col px-4 w-full">
                                 {linksData.map((linkData, index) => (
                                     <Link
                                         onClick={() => { setOpen(prev => !prev); }}
-                                        className={`text-muted-foreground hover:text-primary duration-200  py-4 w-full ${index !== 0 ? "border-t-[1px] border-secondary" : ""
+                                        className={`text-muted-foreground hover:text-primary duration-200  py-4 w-full ${index !== 0 ? "border-t-2 border-secondary" : ""
                                             }`}
                                         key={linkData.title}
                                         href={`#${linkData.title}`}

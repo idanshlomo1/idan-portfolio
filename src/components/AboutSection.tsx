@@ -15,13 +15,8 @@ const AboutSection = () => {
 
             {/* Add experience */}
             <section>
-                <div className="relative container my-8 mx-auto lg:max-w-3xl border-[1px] border-muted-foreground p-8 rounded-3xl">
-                    {/* Floating Title Section */}
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-background rounded-full px-4 py-1">
-                        <h2 className="text-xl md:text-2xl font-bold text-muted-foreground">Experience</h2>
-                    </div>
-
-                    <div className="space-y-8 pt-6"> {/* Added padding-top to give space for the title */}
+                <div className=" container my-8 mx-auto lg:max-w-3xl border-2 border-secondary p-8 rounded-3xl">
+                    <div className="space-y-8 ">
                         <div>
                             <h3 className="mb-3 text-lg font-bold md:text-xl text-muted-foreground">2019 - 2022</h3>
                             <ul className="space-y-4">
