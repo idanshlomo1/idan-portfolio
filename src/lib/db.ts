@@ -5,12 +5,12 @@ import mongoose from "mongoose";
 
 const projectsArr: Project[] = [
     {
-        title: "Project One",
-        description: "this is first description",
-        tags: ["mongodb", "react", "fullstack"],
-        githubUrl: "https://www.youtube.com/watch?v=vCOSTG10Y4o&list=WL&index=2",
+        title: "Devorah's Lane Website",
+        description: "Developed a responsive and visually appealing website for 'Devorah's Lane,' a cosmetic business by Devorah Yaffe. This project utilized React for building a dynamic and interactive user interface, complemented by Tailwind CSS for custom, responsive design. The website features an engaging user experience perfectly aligned with the brand's identity, showcasing a booking system, a treatment results gallery, and a blog for beauty tips. The emphasis was on creating a frontend that is both aesthetically pleasing and functionally rich, enhancing the online presence of Devorah’s cosmetic services.",
+        tags: ["react", "tailwind", "frontend"],
+        githubUrl: "https://www.youtube.com/watch?v=vCOSTG10Y4o&list=WL&index=2", 
         imageUrl: "https://images.pexels.com/photos/23483902/pexels-photo-23483902/free-photo-of-a-woman-in-a-white-shirt-and-brown-boots-standing-in-a-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        livePreviewUrl: "https://www.youtube.com/watch?v=vCOSTG10Y4o&list=WL&index=2",
+        livePreviewUrl: "https://devorahslane.com/", 
         slug: "1"
     },
     {

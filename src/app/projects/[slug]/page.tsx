@@ -2,11 +2,15 @@
 
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { getProject } from "@/lib/db";
 import { Project } from "@/lib/types";
 import { ArrowLeftCircleIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { useRouter } from "next/navigation";  // Corrected import for useRouter
 import { useEffect, useState } from "react";
+import { HiOutlineComputerDesktop } from "react-icons/hi2";
+import { IoLogoGithub } from "react-icons/io";
 
 interface Params {
     slug: string;
@@ -19,6 +23,7 @@ interface SingleProjectPageProps {
 const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
     const router = useRouter();
     const [project, setProject] = useState<Project | null>(null);
+    const [showFullDescription, setShowFullDescription] = useState(false);
     const { slug } = params;
 
     useEffect(() => {
@@ -41,17 +46,22 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
                     className="mb-20 cursor-pointer"
                     onClick={() => router.back()}
                 />
-                <h1 className="text-5xl text-left lg:text-7xl font-light">
+                <h1 className="text-4xl text-left lg:text-6xl font-light">
                     {project.title}
                 </h1>
-                <p className="mt-4 text-muted-foreground text-xl lg:text-3xl">
-                    {project.description}
+                <p className="mt-4 text-muted-foreground text-sm lg:text-lg">
+                    {showFullDescription ? project.description : `${project.description.substring(0, 200)}...`}
+                    {project.description.length > 100 && (
+                        <Button className="text-sm  m-0 " variant="link" onClick={() => setShowFullDescription(!showFullDescription)}>
+                            {showFullDescription ? 'Read Less' : 'Read More'}
+                        </Button>
+                    )}
                 </p>
 
                 <img
                     src={project.imageUrl}
                     alt={project.title}
-                    className="w-full mt-4 h-80 object-cover rounded-lg"
+                    className="w-full mt-4 h-96 object-cover rounded-lg"
                 />
                 <div className="mt-4">
                     {project.tags.map((tag, index) => (
@@ -61,12 +71,38 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
                     ))}
                 </div>
                 <div className="mt-4 space-x-4">
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Button variant="ghost">GitHub</Button>
-                    </a>
-                    <a href={project.livePreviewUrl} target="_blank" rel="noopener noreferrer">
-                        <Button variant="ghost">Live Preview</Button>
-                    </a>
+                    <TooltipProvider>
+                        <Tooltip>
+                            <TooltipTrigger>
+                                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                                    <Button variant="ghost"><IoLogoGithub size={25} /></Button>
+                                </a>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                                <p>View on Github</p>
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
+
+                    <TooltipProvider>
+                        <Tooltip>
+                            <TooltipTrigger>
+                                <a href={project.livePreviewUrl} target="_blank" rel="noopener noreferrer">
+                                    <Button variant="ghost"><HiOutlineComputerDesktop size={25} /></Button>
+                                </a>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                                <p>View live preview</p>
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
+                </div>
+                <div className="mt-8 text-center">
+                    <Link href="/projects">
+                        <Button className='rounded-full' variant="ghost">
+                            View All Projects
+                        </Button>
+                    </Link>
                 </div>
             </MaxWidthWrapper>
         </div>

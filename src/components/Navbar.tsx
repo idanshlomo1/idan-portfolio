@@ -39,6 +39,19 @@ const Navbar = () => {
         document.body.removeChild(link);
     };
 
+    const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: string) => {
+        e.preventDefault();
+        const element = document.getElementById(id);
+        if (element) {
+            window.scrollTo({
+                top: element.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+        setOpen(false);
+    };
+
+
 
     return (
         <div className="fixed top-0 left-0 right-0 ">
@@ -46,7 +59,7 @@ const Navbar = () => {
                 {/* md+ screens nav */}
                 <div className="hidden md:block  ">
                     <div className="flex justify-between items-center border-secondary p-4 m-4 border-2 rounded-full bg-background ">
-                        <Link
+                        <a
                             href="/">
                             <Image
                                 className="mx-4"
@@ -55,18 +68,20 @@ const Navbar = () => {
                                 alt="Logo Image"
                                 src="/logo.png"
                             />
-                        </Link>
+                        </a>
 
 
                         <div className="mx-4">
                             {linksData.map((linkData) => (
-                                <Link
+                                <a
                                     className="text-muted-foreground hover:text-primary duration-200 mx-4"
                                     key={linkData.title}
                                     href={`#${linkData.title}`}
+                                    onClick={(e) => smoothScroll(e, linkData.title)}
+
                                 >
                                     {linkData.title}
-                                </Link>
+                                </a>
                             ))}
                         </div>
 
@@ -91,7 +106,7 @@ const Navbar = () => {
                 {/* sm screen nav */}
                 <div className="md:hidden  ">
                     <div className="flex justify-between items-center border-secondary p-4 m-4 border-2  rounded-full bg-background ">
-                        <Link
+                        <a
                             href="/">
                             <Image
                                 className="mx-4"
@@ -100,12 +115,11 @@ const Navbar = () => {
                                 alt="Logo Image"
                                 src="/logo.png"
                             />
-                        </Link>
+                        </a>
 
 
                         <label className="hamburger">
                             <input
-                                // onClick={() => setOpen(prev => !prev)}
                                 type="checkbox"
                                 checked={open}
                                 onChange={() => setOpen(prev => !prev)}
@@ -123,17 +137,21 @@ const Navbar = () => {
                         <div className="flex flex-col justify-between items-center border-secondary p-4 m-4 border-2 bg-background  rounded-3xl ">
                             <div className=" flex flex-col px-4 w-full">
                                 {linksData.map((linkData, index) => (
-                                    <Link
-                                        onClick={() => { setOpen(prev => !prev); }}
+                                    <a
+                                        onClick={(e) => {
+                                            setOpen(prev => !prev);  
+                                            smoothScroll(e, linkData.title); 
+                                        }}
                                         className={`text-muted-foreground hover:text-primary duration-200  py-4 w-full ${index !== 0 ? "border-t-2 border-secondary" : ""
                                             }`}
                                         key={linkData.title}
                                         href={`#${linkData.title}`}
+
                                     >
                                         <div className="my-2">
                                             {linkData.title}
                                         </div>
-                                    </Link>
+                                    </a>
                                 ))}
 
                             </div>
