@@ -1,4 +1,4 @@
-
+"use client"
 import React, { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 import Link from 'next/link';
@@ -46,7 +46,7 @@ const ProjectsSection = () => {
 
                 <div className="mt-12 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
                     {projects.slice(0, 3).map((project) => (
-                        <ProjectCard project={project} />
+                        <ProjectCard key={project.slug} project={project} />
                     ))}
                 </div>
 
