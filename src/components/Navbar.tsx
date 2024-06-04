@@ -39,7 +39,7 @@ const Navbar = () => {
         document.body.removeChild(link);
     };
 
-    const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: string) => {
+    const smoothScroll = (e: React.MouseEvent<HTMLElement, MouseEvent>, id: string) => {
         e.preventDefault();
         const element = document.getElementById(id);
         if (element) {
@@ -48,7 +48,6 @@ const Navbar = () => {
                 behavior: 'smooth'
             });
         }
-        setOpen(false);
     };
 
 
@@ -139,8 +138,8 @@ const Navbar = () => {
                                 {linksData.map((linkData, index) => (
                                     <a
                                         onClick={(e) => {
-                                            setOpen(prev => !prev);  
-                                            smoothScroll(e, linkData.title); 
+                                            setOpen(prev => !prev);
+                                            smoothScroll(e, linkData.title);
                                         }}
                                         className={`text-muted-foreground hover:text-primary duration-200  py-4 w-full ${index !== 0 ? "border-t-2 border-secondary" : ""
                                             }`}

@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google"
+import { Montserrat as FontSans } from "next/font/google"
 import "./globals.css";
 import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
-import Navbar from "@/components/Navbar";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -35,8 +34,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* remove min-h-screen */}
-          <div className="min-h-screen">
+          <div className="">
             {children}
           </div>
           <Toaster position="top-center" richColors />

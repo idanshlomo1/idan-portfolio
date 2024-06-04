@@ -15,7 +15,7 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     return (
         <div>
-            <div className="border-2 border-pri rounded-lg p-4 duration-300">
+            <div className="border-2 border-pri rounded-lg p-4 duration-300 bg-gradient-to-tr from-background to-transparent">
                 <img src={project.imageUrl} alt={project.title} className="w-full h-48 object-cover rounded-lg" />
                 <h2 className="text-2xl mt-4">{project.title}</h2>
                 {/* <p className="mt-2 text-muted-foreground">{project.description}</p> */}

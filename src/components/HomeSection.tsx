@@ -13,7 +13,7 @@ const HomeSection = () => {
     document.body.removeChild(link);
   };
 
-  const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: string) => {
+  const smoothScroll = (e: React.MouseEvent<HTMLElement, MouseEvent>, id: string) => {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
@@ -22,7 +22,6 @@ const HomeSection = () => {
         behavior: 'smooth'
       });
     }
-
   };
 
   return (
@@ -55,18 +54,21 @@ const HomeSection = () => {
               <BsBoxArrowInDown size={20} className="ml-2" />
 
             </Button>
-            <a
+
+
+            <Button
               onClick={(e) => smoothScroll(e, "Projects")}
-            >
-              <Button variant={"ghost"} className="w-full md:w-auto mt-4 md:mt-0 rounded-full flex items-center md:ml-4">
-                <p>
+              variant={"ghost"} className="w-full md:w-auto mt-4 md:mt-0 rounded-full flex items-center md:ml-4">
+              <p
 
-                  Recent projects
-                </p>
-                <BsBoxArrowRight size={20} className="ml-2" />
+              >
 
-              </Button>
-            </a>
+                Recent projects
+              </p>
+              <BsBoxArrowRight size={20} className="ml-2" />
+
+            </Button>
+
 
           </div>
         </div>

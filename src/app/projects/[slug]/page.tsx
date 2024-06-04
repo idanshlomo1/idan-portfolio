@@ -42,19 +42,24 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
     return (
         <div>
             <MaxWidthWrapper className="py-20">
-                <ArrowLeftCircleIcon
-                    className="mb-20 cursor-pointer"
-                    onClick={() => router.back()}
-                />
+                <Button
+                    className="mb-20"
+                    variant="ghost"
+                    onClick={() => router.back()}>
+                    <ArrowLeftCircleIcon
+                      
+                    />
+                </Button>
+
                 <h1 className="text-4xl text-left lg:text-6xl font-light">
                     {project.title}
                 </h1>
                 <p className="mt-4 text-muted-foreground text-sm lg:text-lg">
                     {showFullDescription ? project.description : `${project.description.substring(0, 200)}...`}
                     {project.description.length > 100 && (
-                        <Button className="text-sm  m-0 " variant="link" onClick={() => setShowFullDescription(!showFullDescription)}>
+                        <a className="text-xs lg:text-sm cursor-pointer ml-2 underline text-primary hover:text-muted-foreground duration-300" onClick={() => setShowFullDescription(!showFullDescription)}>
                             {showFullDescription ? 'Read Less' : 'Read More'}
-                        </Button>
+                        </a>
                     )}
                 </p>
 
