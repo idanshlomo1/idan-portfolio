@@ -22,24 +22,24 @@ const projectsArr: Project[] = [
         livePreviewUrl: "https://idanso.netlify.app/",
         slug: "2"
     },
-    {
-        title: "Project Three",
-        description: "this is three description",
-        tags: ["next-js", "node-js", "frontend"],
-        githubUrl: "https://www.youtube.com/watch?v=vCOSTG10Y4o&list=WL&index=2",
-        imageUrl: "https://images.pexels.com/photos/23483902/pexels-photo-23483902/free-photo-of-a-woman-in-a-white-shirt-and-brown-boots-standing-in-a-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        livePreviewUrl: "https://www.youtube.com/watch?v=vCOSTG10Y4o&list=WL&index=2",
-        slug: "3"
-    },
-    {
-        title: "Project Four",
-        description: "this is three description",
-        tags: ["next-js", "node-js", "frontend"],
-        githubUrl: "https://www.youtube.com/watch?v=vCOSTG10Y4o&list=WL&index=2",
-        imageUrl: "https://images.pexels.com/photos/23483902/pexels-photo-23483902/free-photo-of-a-woman-in-a-white-shirt-and-brown-boots-standing-in-a-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        livePreviewUrl: "https://www.youtube.com/watch?v=vCOSTG10Y4o&list=WL&index=2",
-        slug: "4"
-    },
+    // {
+    //     title: "Project Three",
+    //     description: "this is three description",
+    //     tags: ["next-js", "node-js", "frontend"],
+    //     githubUrl: "https://www.youtube.com/watch?v=vCOSTG10Y4o&list=WL&index=2",
+    //     imageUrl: "https://images.pexels.com/photos/23483902/pexels-photo-23483902/free-photo-of-a-woman-in-a-white-shirt-and-brown-boots-standing-in-a-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    //     livePreviewUrl: "https://www.youtube.com/watch?v=vCOSTG10Y4o&list=WL&index=2",
+    //     slug: "3"
+    // },
+    // {
+    //     title: "Project Four",
+    //     description: "this is three description",
+    //     tags: ["next-js", "node-js", "frontend"],
+    //     githubUrl: "https://www.youtube.com/watch?v=vCOSTG10Y4o&list=WL&index=2",
+    //     imageUrl: "https://images.pexels.com/photos/23483902/pexels-photo-23483902/free-photo-of-a-woman-in-a-white-shirt-and-brown-boots-standing-in-a-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    //     livePreviewUrl: "https://www.youtube.com/watch?v=vCOSTG10Y4o&list=WL&index=2",
+    //     slug: "4"
+    // },
 ];
 export const getProjects = async () => {
     try {
