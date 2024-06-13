@@ -29,10 +29,10 @@ const HomeSection = () => {
       <div className="flex flex-col md:flex-row justify-between items-center" >
         <div>
           <div className="max-w-2xl">
-            <h1 className="text-5xl text-center md:text-left lg:text-7xl font-light">
+            <h1 className="text-4xl text-center md:text-left lg:text-7xl font-light">
               Idan Shlomo
             </h1>
-            <h1 className="text-5xl text-center md:text-left lg:text-7xl font-light mt-2">
+            <h1 className="text-4xl text-center md:text-left lg:text-6xl font-light mt-2">
               Fullstack developer
             </h1>
             <div className="bgGradient h-[1px] mt-4 rounded-full">

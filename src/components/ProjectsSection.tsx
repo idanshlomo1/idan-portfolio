@@ -39,7 +39,7 @@ const ProjectsSection = () => {
                 <h1 className="text-5xl text-center lg:text-7xl font-light">
                     Recent Projects
                 </h1>
-                <div className="bgGradient h-[1px] mt-4 rounded-full max-w-md mx-auto"></div>
+                <div className="bgGradient h-[1px] mt-4 rounded-full max-w-2xl mx-auto"></div>
                 <p className="text-muted-foreground text-center mt-4">
                     A showcase of my recent work
                 </p>

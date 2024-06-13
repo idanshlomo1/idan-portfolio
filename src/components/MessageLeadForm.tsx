@@ -96,7 +96,7 @@ const MessageLeadForm: React.FC = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="flex flex-col md:flex-row justify-between">
                             <div className="w-full  md:w-1/2 md:mr-2 mb-2 md:mb-0">
-                                <div className=" my-4 h-12">
+                                <div className=" h-12">
                                     <Input
                                         type="text"
                                         className='rounded-full duration-300 w-full'
@@ -110,7 +110,7 @@ const MessageLeadForm: React.FC = () => {
                                 </div>
                             </div>
                             <div className="w-full md:w-1/2 md:ml-2">
-                                <div className=" my-4 h-12">
+                                <div className=" h-12">
                                     <Input
                                         type="text"
                                         className='rounded-full duration-300 w-full'
@@ -150,7 +150,7 @@ const MessageLeadForm: React.FC = () => {
                                 id="messageLeadForm-otherMessage"
                                 value={formData.otherMessage}
                                 onChange={(e) => setFormData({ ...formData, otherMessage: e.target.value })}
-                                className=" rounded-2xl w-full max-h-32 h-32 duration-300"
+                                className=" rounded-2xl w-full max-h-32 h-32 duration-200"
                                 placeholder="Tell me more about your desired project.."
                             />
                         </div>

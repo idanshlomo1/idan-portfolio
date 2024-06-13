@@ -7,6 +7,8 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ModeToggle } from "./mode-toggle";
 import { useTheme } from "next-themes";
+import { IoLogoGithub, IoLogoInstagram, IoLogoWhatsapp } from "react-icons/io";
+import { FaWhatsapp } from "react-icons/fa6";
 
 const Navbar = () => {
 
@@ -104,6 +106,20 @@ const Navbar = () => {
                         </Button> */}
 
                         {/* <ModeToggle /> */}
+
+                        <div className="flex items-center justify-center space-x-4 mr-4 ">
+                            <a className="text-muted-foreground hover:text-primary duration-200" href="https://www.instagram.com/idan_shlomo1/" target="_blank" rel="noopener noreferrer">
+                                <IoLogoInstagram size={25} />
+                            </a>
+                            <a className="text-muted-foreground hover:text-primary duration-200" href="https://github.com/idanshlomo1" target="_blank" rel="noopener noreferrer">
+                                <IoLogoGithub size={25} />
+                            </a>
+                            <a className="text-muted-foreground hover:text-primary duration-200" href="https://wa.me/972538250965" target="_blank" rel="noopener noreferrer">
+                                <FaWhatsapp size={25} />
+                            </a>
+
+
+                        </div>
                     </div>
                 </div>
 
@@ -175,7 +191,21 @@ const Navbar = () => {
                                 <p>Download CV</p>
                                 <BsBoxArrowInDown size={20} className="ml-2" />
                             </Button>
-{/* 
+
+                            <div className="flex items-center justify-center space-x-4 mt-6 mb-4 ">
+                                <a className="text-muted-foreground hover:text-primary duration-200" href="https://www.instagram.com/idan_shlomo1/" target="_blank" rel="noopener noreferrer">
+                                    <IoLogoInstagram size={25} />
+                                </a>
+                                <a className="text-muted-foreground hover:text-primary duration-200" href="https://github.com/idanshlomo1" target="_blank" rel="noopener noreferrer">
+                                    <IoLogoGithub size={25} />
+                                </a>
+                                <a className="text-muted-foreground hover:text-primary duration-200" href="https://wa.me/972538250965" target="_blank" rel="noopener noreferrer">
+                                    <FaWhatsapp size={25} />
+                                </a>
+
+
+                            </div>
+                            {/* 
                             <div className="mt-4">
                                 <ModeToggle />
 

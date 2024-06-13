@@ -22,6 +22,26 @@ const projectsArr: Project[] = [
         livePreviewUrl: "https://idanso.netlify.app/",
         slug: "2"
     },
+
+    {
+        title: "Mali Dayan Landing page",
+        description: "This landing page, crafted using React and Tailwind CSS, uniquely showcases Mali Dayan's marriage counseling services. It features a distinctive design, an engaging interface, and an interactive gallery that highlights the essence of her work. The site is fully responsive, providing a seamless experience on all devices and reflecting my capability to deliver customized and visually compelling digital solutions tailored to her professional needs",
+        tags: ["react", "tailwind-css", "frontend"],
+        githubUrl: "https://github.com/idanshlomo1/landingpage-mali-dayan",
+        imageUrl: "https://malidayan.com/static/media/logoImage.d339938cef7baa3cac14.jpeg",
+        livePreviewUrl: "https://malidayan.com/",
+        slug: "3"
+    },
+
+    {
+        title: "Moove Media Landing page",
+        description: "This landing page, built using React and Tailwind CSS, uniquely showcases the services of Moove Media, a digital marketing agency specializing in business strategy and video editing. It features a distinctive design, an engaging interface, and an interactive gallery that highlights the essence of their work. The site is fully responsive, providing a seamless experience on all devices and reflecting my capability to deliver customized and visually compelling digital solutions tailored to their professional needs.",
+        tags: ["react", "tailwind-css", "frontend"],
+        githubUrl: "https://github.com/idanshlomo1/landingpage-stav-smadar",
+        imageUrl: "https://moovemedia.co.il/static/media/moovemedia_logo.7862736fda1d3306e7d0.png",
+        livePreviewUrl: "https://moovemedia.co.il/",
+        slug: "4"
+    },
     // {
     //     title: "Project Three",
     //     description: "this is three description",

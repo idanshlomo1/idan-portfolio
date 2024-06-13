@@ -47,7 +47,7 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
                     variant="ghost"
                     onClick={() => router.back()}>
                     <ArrowLeftCircleIcon
-                      
+
                     />
                 </Button>
 
@@ -70,7 +70,7 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
                 />
                 <div className="mt-4">
                     {project.tags.map((tag, index) => (
-                        <span key={index} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                        <span key={index} className="inline-block bg-primary-foreground rounded-full px-3 py-1 text-sm font-semibold text-muted-foreground mr-2 mb-2">
                             #{tag}
                         </span>
                     ))}
@@ -102,6 +102,8 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
                         </Tooltip>
                     </TooltipProvider>
                 </div>
+
+                <div className="border-t-[1px] mt-8"></div>
                 <div className="mt-8 text-center">
                     <Link href="/projects">
                         <Button className='rounded-full' variant="ghost">

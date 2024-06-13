@@ -46,7 +46,7 @@ const ProjectsPage = () => {
                 <h1 className="text-5xl text-center lg:text-7xl font-light">
                     All Projects
                 </h1>
-                <div className="bgGradient h-[1px] mt-4 rounded-full max-w-sm mx-auto"></div>
+                <div className="bgGradient h-[1px] mt-4 rounded-full max-w-md mx-auto"></div>
 
                 <div className='flex items-center justify-center max-w-xl mx-auto mt-12 '>
                     <Input
