@@ -1,4 +1,4 @@
-import { IoMdCheckmarkCircle } from "react-icons/io"
+import { IoMdCheckmarkCircle } from "react-icons/io";
 
 const AboutSection = () => {
     return (
@@ -7,15 +7,13 @@ const AboutSection = () => {
                 <h1 className="text-5xl text-center lg:text-7xl font-light">
                     About
                 </h1>
-                <div className="bgGradient h-[1px] mt-4 rounded-full max-w-md mx-auto">
-                </div>
+                <div className="bgGradient h-[1px] mt-4 rounded-full max-w-md mx-auto"></div>
                 <p className="text-muted-foreground text-center md:text-left mt-4">
                     At 19, I have already established myself as a proficient full-stack developer. My expertise lies in crafting dynamic web applications that seamlessly connect user needs with advanced technology. With a keen eye for detail and a commitment to excellence, I strive to push the boundaries of what's possible in web development.
                 </p>
                 <p className="text-muted-foreground text-center md:text-left mt-4">
                     My passion for coding is driven by a relentless pursuit of innovation and mastery. I am dedicated to delivering solutions that not only meet but exceed expectations, ensuring impactful and user-friendly experiences. By staying updated with the latest trends and technologies, I aim to continually elevate the quality and functionality of my projects.
                 </p>
-
             </div>
 
             {/* Add experience */}
@@ -49,12 +47,8 @@ const AboutSection = () => {
                     </div>
                 </div>
             </section>
-
-
-
         </div>
-
-    )
+    );
 }
 
-export default AboutSection
+export default AboutSection;
