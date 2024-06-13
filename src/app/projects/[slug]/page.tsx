@@ -6,6 +6,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { getProject } from "@/lib/db";
 import { Project } from "@/lib/types";
 import { ArrowLeftCircleIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";  // Corrected import for useRouter
 import { useEffect, useState } from "react";
@@ -63,9 +64,11 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
                     )}
                 </p>
 
-                <img
+                <Image
                     src={project.imageUrl}
                     alt={project.title}
+                    height={50}
+                    width={200}
                     className="w-full mt-4 h-96 object-cover rounded-lg"
                 />
                 <div className="mt-4">
