@@ -4,6 +4,9 @@ import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
 
 // Define a type for the form data
+
+const getformUrl = process.env.NEXT_PUBLIC_GETFORM_URL;
+
 type FormData = {
     name: string;
     phone: string;
@@ -43,7 +46,7 @@ const MessageLeadForm: React.FC = () => {
             setIsSubmitting(true);
 
             try {
-                const response = await fetch("https://getform.io/f/e9e689f4-28cb-4ec5-a8e5-3a018e7dbbd1a", {
+                const response = await fetch(process.env.NEXT_PUBLIC_GETFORM_URL as string, {
                     method: 'POST',
                     body: JSON.stringify(formData),
                     headers: {
