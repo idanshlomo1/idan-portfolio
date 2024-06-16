@@ -16,7 +16,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     return (
         <div>
             <div className="border-2 border-pri rounded-lg p-4 duration-300 bg-gradient-to-tr from-background to-transparent">
-                <img src={project.imageUrl} alt={project.title} className="w-full h-48 object-cover rounded-lg" />
+                <img src={project.imageUrl} alt={project.title} className="w-full h-56 object-cover rounded-lg" />
                 <h2 className="text-2xl mt-4">{project.title}</h2>
                 {/* <p className="mt-2 text-muted-foreground">{project.description}</p> */}
                 <div className="mt-4">
@@ -28,7 +28,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 </div>
                 <div className="mt-4 flex justify-between">
                     <Link href={`/projects/${project.slug}`}>
-                        <Button variant="ghost">Read More</Button>
+                        <Button variant="ghost" >Read More</Button>
                     </Link>
                     <div>
                         <TooltipProvider>

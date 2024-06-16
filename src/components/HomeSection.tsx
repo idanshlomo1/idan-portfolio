@@ -24,6 +24,8 @@ const HomeSection = () => {
     }
   };
 
+  
+
   return (
     <div id="Home" className="pt-40 md:pt-64 min-h-screen">
       <div className="flex flex-col md:flex-row justify-between items-center" >

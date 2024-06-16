@@ -63,7 +63,6 @@ const projectsArr: Project[] = [
 ];
 export const getProjects = async () => {
     try {
-        // const projects = await ProjectModel.find()
         const projects = projectsArr
         return projects
     } catch (error) {

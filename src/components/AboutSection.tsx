@@ -3,22 +3,32 @@ import { IoMdCheckmarkCircle } from "react-icons/io";
 const AboutSection = () => {
     return (
         <div id="About" className="pt-40 min-h-screen">
-            <div className="max-w-2xl mx-auto">
-                <h1 className="text-5xl text-center lg:text-7xl font-light">
-                    About
-                </h1>
-                <div className="bgGradient h-[1px] mt-4 rounded-full max-w-md mx-auto"></div>
-                <p className="text-muted-foreground text-center md:text-left mt-4">
-                    At 19, I have already established myself as a proficient full-stack developer. My expertise lies in crafting dynamic web applications that seamlessly connect user needs with advanced technology. With a keen eye for detail and a commitment to excellence, I strive to push the boundaries of what is possible in web development.
+
+            <h1 className="text-5xl text-center lg:text-7xl font-light">
+                About
+            </h1>
+            <div className="bgGradient h-[1px] mt-4 rounded-full max-w-md mx-auto"></div>
+
+            <div className="container my-8 mx-auto  border-2 border-secondary p-6 rounded-3xl">
+                <p className="text-muted-foreground text-left">
+                    At 19, I have already established myself as a proficient full-stack developer.
+                    <br />
+                    My expertise lies in crafting dynamic web applications that seamlessly connect user needs with advanced technology.
+                    <br />
+                    With a keen eye for detail and a commitment to excellence, I strive to push the boundaries of what is possible in web development.
                 </p>
-                <p className="text-muted-foreground text-center md:text-left mt-4">
-                    My passion for coding is driven by a relentless pursuit of innovation and mastery. I am dedicated to delivering solutions that not only meet but exceed expectations, ensuring impactful and user-friendly experiences. By staying updated with the latest trends and technologies, I aim to continually elevate the quality and functionality of my projects.
+                <p className="text-muted-foreground text-left mt-4">
+                    My passion for coding is driven by a relentless pursuit of innovation and mastery.
+                    <br />
+                    I am dedicated to delivering solutions that not only meet but exceed expectations, ensuring impactful and user-friendly experiences.
+                    <br />
+                    By staying updated with the latest trends and technologies, I aim to continually elevate the quality and functionality of my projects.
                 </p>
             </div>
 
             {/* Add experience */}
             <section>
-                <div className="container my-8 mx-auto lg:max-w-3xl border-2 border-secondary p-8 rounded-3xl">
+                <div className="container my-8 mx-auto lg:max-w-3xl border-2 border-secondary p-6 rounded-3xl">
                     <div className="space-y-8">
                         <div>
                             <h3 className="mb-3 text-lg font-bold md:text-xl text-muted-foreground">2019 - 2022</h3>

@@ -27,8 +27,7 @@ const ProjectsPage = () => {
 
     const filteredProjects = projects.filter(project =>
         project.title.toLowerCase().includes(searchTerm.toLowerCase())
-        // ||
-        // project.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+     
     );
 
     return (

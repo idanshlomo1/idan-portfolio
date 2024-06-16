@@ -1,22 +1,24 @@
+
 import type { Metadata } from "next";
-import { Montserrat as FontSans } from "next/font/google"
+import { Montserrat as FontSans } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
+import { useEffect } from "react";
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
-})
+});
 
 export const metadata: Metadata = {
   title: "Idan Shlomo - Fullstack Developer",
   description: "Idan Shlomo is a skilled fullstack developer specializing in creating well-designed and responsive web applications. With expertise in technologies such as React, Next.js, and Tailwind CSS, Idan builds dynamic and efficient solutions tailored to business needs. Explore projects and learn more about Idan's professional journey and innovative work.",
   viewport: "width=device-width, initial-scale=1",
   icons: {
-    icon: "/custom.ico", // Path to your favicon
-    apple: "/apple-touch-icon.png", // Ensure this file exists or update the path
+    icon: "/custom.ico",
+    apple: "/apple-touch-icon.png",
     other: [
       {
         rel: "icon",
@@ -60,7 +62,7 @@ export const metadata: Metadata = {
     "Software Engineer",
     "Portfolio",
     "Project Management",
-    "Tech Enthusiast"
+    "Tech Enthusiast",
   ],
   authors: [{ name: "Idan Shlomo", url: "https://idanshlomo-dev.netlify.app" }],
   applicationName: "Idan Shlomo Portfolio",
@@ -75,7 +77,7 @@ export const metadata: Metadata = {
     url: "https://idanshlomo-dev.netlify.app",
     images: [
       {
-        url: "/logoImage.jpg", // Ensure this file exists or update the path
+        url: "/logoImage.jpg",
         width: 1200,
         height: 1200,
         alt: "Og Image Alt",
@@ -86,13 +88,13 @@ export const metadata: Metadata = {
   },
 };
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
