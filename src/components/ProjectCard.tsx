@@ -20,11 +20,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         const img = new Image();
         img.src = project.imageUrl;
         img.onload = () => setImageLoaded(true);
-        img.onerror = () => setImageLoaded(true);
     }, [project.imageUrl]);
 
     return (
-        <div className="border-2 border-pri rounded-lg p-4 duration-300 bg-gradient-to-tr from-background to-transparent">
+        <div className="border-2 hover:border-muted-foreground  rounded-lg p-4 duration-300 bg-gradient-to-tr from-background to-transparent">
             {!imageLoaded ? (
                 <div className="flex flex-col space-y-3">
                     <Skeleton className="w-full h-56   rounded-lg" />
@@ -48,7 +47,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                     </span>
                 ))}
             </div>
-            <div className="mt-4 flex justify-between">
+            <div className="h-[1px] bg-secondary mb-1 mt-2"></div>
+            <div className="mt-4 flex justify-between ">
                 <Link href={`/projects/${project.slug}`}>
                     <Button variant="ghost">Read More</Button>
                 </Link>

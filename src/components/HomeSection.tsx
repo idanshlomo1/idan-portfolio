@@ -1,7 +1,7 @@
 import { BsBoxArrowInDown, BsBoxArrowRight } from "react-icons/bs";
 import { Button } from "./ui/button"
 import Image from "next/image";
-
+import { useRef } from "react";
 const HomeSection = () => {
 
   const handleDownloadCV = () => {
@@ -24,7 +24,8 @@ const HomeSection = () => {
     }
   };
 
-  
+  const cvRef = useRef<HTMLDivElement>(null);
+
 
   return (
     <div id="Home" className="pt-40 md:pt-64 min-h-screen">
@@ -35,7 +36,7 @@ const HomeSection = () => {
               Idan Shlomo
             </h1>
             <h1 className="text-4xl text-center md:text-left lg:text-6xl font-light mt-2">
-              Fullstack developer
+              Full stack developer
             </h1>
             <div className="bgGradient h-[1px] mt-4 rounded-full">
             </div>
@@ -55,7 +56,11 @@ const HomeSection = () => {
               </p>
               <BsBoxArrowInDown size={20} className="ml-2" />
 
+
             </Button>
+
+
+
 
 
             <Button

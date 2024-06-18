@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useEffect, useState } from 'react';
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { getProjects } from "@/lib/db";
@@ -9,17 +9,20 @@ import ProjectCard from '@/components/ProjectCard';
 import { Input } from '@/components/ui/input';
 import { IoMdSearch } from 'react-icons/io';
 import { Button } from '@/components/ui/button';
+import Loader from '@/components/Loader';
 
 const ProjectsPage = () => {
 
     const router = useRouter();
     const [projects, setProjects] = useState<Project[]>([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const [loading, setLoading] = useState(true); // Add loading state
 
     useEffect(() => {
         const fetchData = async () => {
             const projectsData = await getProjects();
             setProjects(projectsData);
+            setLoading(false); // Set loading to false after data is fetched
         };
 
         fetchData();
@@ -27,8 +30,11 @@ const ProjectsPage = () => {
 
     const filteredProjects = projects.filter(project =>
         project.title.toLowerCase().includes(searchTerm.toLowerCase())
-     
     );
+
+    if (loading) {
+        return <Loader />; // Display Loader while loading is true
+    }
 
     return (
         <div>
@@ -36,11 +42,9 @@ const ProjectsPage = () => {
                 <Button
                     className="mb-20"
                     variant="ghost"
-                    onClick={() => router.back()}
+                    onClick={() => router.push("/")}
                 >
-                    <ArrowLeftCircleIcon
-
-                    />
+                    <ArrowLeftCircleIcon />
                 </Button>
                 <h1 className="text-5xl text-center lg:text-7xl font-light">
                     All Projects
@@ -54,10 +58,7 @@ const ProjectsPage = () => {
                         className="duration-300 rounded-full"
                     />
                     <IoMdSearch size={20} className='mx-4' />
-
-
                 </div>
-
 
                 <div className="mt-12 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
                     {filteredProjects.map((project) => (
@@ -66,7 +67,7 @@ const ProjectsPage = () => {
                 </div>
             </MaxWidthWrapper>
         </div>
-    )
+    );
 }
 
 export default ProjectsPage;

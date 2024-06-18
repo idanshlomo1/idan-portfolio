@@ -1,5 +1,6 @@
-"use client"
+"use client";
 
+import Loader from "@/components/Loader";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -8,7 +9,7 @@ import { Project } from "@/lib/types";
 import { ArrowLeftCircleIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";  // Corrected import for useRouter
+import { useRouter } from "next/navigation"; // Corrected import for useRouter
 import { useEffect, useState } from "react";
 import { HiOutlineComputerDesktop } from "react-icons/hi2";
 import { IoLogoGithub } from "react-icons/io";
@@ -25,31 +26,39 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
     const router = useRouter();
     const [project, setProject] = useState<Project | null>(null);
     const [showFullDescription, setShowFullDescription] = useState(false);
+    const [isLoading, setIsLoading] = useState(true); // New state for loading
     const { slug } = params;
 
     useEffect(() => {
         const fetchData = async () => {
-            const fetchedProject = await getProject(slug);
-            setProject(fetchedProject);
+            try {
+                const fetchedProject = await getProject(slug);
+                setProject(fetchedProject);
+            } catch (error) {
+                console.error("Failed to fetch project:", error);
+                // Redirect if there's an error
+            } finally {
+                setIsLoading(false); // Set loading to false after data is fetched
+            }
         };
 
         fetchData();
-    }, [slug]); // Dependency on 'slug' to refetch when it changes
+    }, [slug, router]); // Added router to the dependency array
+
+    if (isLoading) {
+        return <Loader />; // Display a loading state while fetching data
+    }
 
     if (!project) {
-        return <div>Loading...</div>; // Handle loading state properly
+        router.push("/projects");
+        return null; // Return null if there's no project to render
     }
 
     return (
         <div>
             <MaxWidthWrapper className="py-20">
-                <Button
-                    className="mb-20"
-                    variant="ghost"
-                    onClick={() => router.back()}>
-                    <ArrowLeftCircleIcon
-
-                    />
+                <Button className="mb-20" variant="ghost" onClick={() => router.push("/projects")}>
+                    <ArrowLeftCircleIcon />
                 </Button>
 
                 <h1 className="text-4xl text-left lg:text-6xl font-light">
@@ -58,7 +67,10 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
                 <p className="mt-4 text-muted-foreground text-sm lg:text-lg">
                     {showFullDescription ? project.description : `${project.description.substring(0, 200)}...`}
                     {project.description.length > 100 && (
-                        <a className="text-xs lg:text-sm cursor-pointer ml-2 underline text-primary hover:text-muted-foreground duration-300" onClick={() => setShowFullDescription(!showFullDescription)}>
+                        <a
+                            className="text-xs lg:text-sm cursor-pointer ml-2 underline text-primary hover:text-muted-foreground duration-300"
+                            onClick={() => setShowFullDescription(!showFullDescription)}
+                        >
                             {showFullDescription ? 'Read Less' : 'Read More'}
                         </a>
                     )}

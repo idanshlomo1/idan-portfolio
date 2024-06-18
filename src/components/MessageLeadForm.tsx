@@ -135,8 +135,8 @@ const MessageLeadForm: React.FC = () => {
                                 onChange={handleSubjectChange}
                                 className="text-main bg-secondary px-2 py-1 rounded-full text-lg cursor-pointer font-bold"
                             >
-                                <option value="Fullstack project">Fullstack project</option>
-                                <option value="Fullstack project">Frontend project</option>
+                                <option value="Full stack project">Full stack project</option>
+                                <option value="Full stack project">Frontend project</option>
                                 <option value="Website">Website</option>
                                 <option value="Landing page">Landing page</option>
                                 <option value="Advanced website">Advanced website</option>

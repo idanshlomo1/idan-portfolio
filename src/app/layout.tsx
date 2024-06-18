@@ -13,8 +13,8 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Idan Shlomo - Fullstack Developer",
-  description: "Idan Shlomo is a skilled fullstack developer specializing in creating well-designed and responsive web applications. With expertise in technologies such as React, Next.js, and Tailwind CSS, Idan builds dynamic and efficient solutions tailored to business needs. Explore projects and learn more about Idan's professional journey and innovative work.",
+  title: "Idan Shlomo - Full stack Developer",
+  description: "Idan Shlomo is a skilled full stack developer specializing in creating well-designed and responsive web applications. With expertise in technologies such as React, Next.js, and Tailwind CSS, Idan builds dynamic and efficient solutions tailored to business needs. Explore projects and learn more about Idan's professional journey and innovative work.",
   viewport: "width=device-width, initial-scale=1",
   icons: {
     icon: "/custom.ico",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   robots: "index, follow",
   keywords: [
-    "Fullstack Developer",
+    "Full stack Developer",
     "Web Development",
     "React",
     "Next.js",
@@ -72,8 +72,8 @@ export const metadata: Metadata = {
   creator: "Idan Shlomo",
   publisher: "Idan Shlomo",
   openGraph: {
-    title: "Idan Shlomo - Fullstack Developer",
-    description: "Idan Shlomo is a skilled fullstack developer specializing in creating well-designed and responsive web applications.",
+    title: "Idan Shlomo - Full stack Developer",
+    description: "Idan Shlomo is a skilled full stack developer specializing in creating well-designed and responsive web applications.",
     url: "https://idanshlomo-dev.netlify.app",
     images: [
       {
