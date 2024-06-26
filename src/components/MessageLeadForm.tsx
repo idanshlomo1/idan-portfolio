@@ -85,7 +85,7 @@ const MessageLeadForm: React.FC = () => {
 
     return (
         <div className='mt-4'>
-            <div className="mx-auto px-8 py-10 pb-10 rounded-xl max-w-[1000px] border-2 border-secondary">
+            <div className="mx-auto px-8 py-10 pb-10 rounded-xl max-w-[1000px] border-2 border-secondary hover:border-muted-foreground duration-300">
                 <div>
                     <div className='mb-8'>
                         <h1 className="text-center text-lg md:text-2xl font-extrabold text-secondary">

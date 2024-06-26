@@ -81,7 +81,7 @@ const HomeSection = () => {
         </div>
         <div>
           <Image
-            src="/programming-image.jpg"
+            src="/logo.png"
             alt="programming image"
             width={220}
             height={220}
