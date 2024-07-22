@@ -35,7 +35,7 @@ const AboutSection = () => {
                             <ul className="space-y-4">
                                 <li className="space-y-1">
                                     <div className="flex items-center space-x-2">
-                                        <IoMdCheckmarkCircle className="w-4 h-4" />
+                                        <IoMdCheckmarkCircle className="w-4 h-4 text-gray-4 " />
                                         <h4 className="font-bold textGradient">Freelance Graphic Designer</h4>
                                     </div>
                                     <p className="ml-7 text-gray-1">Worked on various graphic design projects, creating visually appealing designs for clients. Developed strong skills in Adobe Creative Suite and delivered high-quality work under tight deadlines.</p>
@@ -47,7 +47,7 @@ const AboutSection = () => {
                             <ul className="space-y-4">
                                 <li className="space-y-1">
                                     <div className="flex items-center space-x-2">
-                                        <IoMdCheckmarkCircle className="w-4 h-4" />
+                                        <IoMdCheckmarkCircle className="w-4 h-4 text-gray-4" />
                                         <h4 className="font-bold textGradient">Freelance Full Stack Web Developer</h4>
                                     </div>
                                     <p className="ml-7 text-gray-1">Specialized in building dynamic web applications using modern technologies like React, Next.js, and Node.js. Delivered robust solutions to clients, focusing on performance, scalability, and user experience.</p>

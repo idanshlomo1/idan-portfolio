@@ -41,11 +41,11 @@ const ProjectsSection = () => {
                     Recent Projects
                 </h1>
                 <div className="bgGradient h-[1px] mt-4 rounded-full max-w-2xl mx-auto"></div>
-                <p className="text-gray-1 text-center mt-4">
+                <p className="text-gray-1 text-center text-lg mt-4">
                     A showcase of my recent work
                 </p>
 
-                <div className="mt-12 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                <div className="mt-12 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 max-w-[400px] md:max-w-max mx-auto gap-8">
                     {projects.slice(0, 3).map((project) => (
                         <ProjectCard key={project.slug} project={project} />
                     ))}

@@ -17,7 +17,7 @@ const notFound = () => {
                 <div className="text">404 Error...</div>
             </div>
             <div>
-                <Link href="/"><Button className="text-primary hover:text-muted-foreground duration-300 underline" variant="link"> Jump back to Home page<ArrowRightCircle className="ml-2" /></Button></Link>
+                <Link href="/"><Button className="text-gray-4 hover:text-gray-1 duration-300 underline" variant="link"> Jump back to Home page<ArrowRightCircle className="ml-2" /></Button></Link>
             </div>
         </div>
     )

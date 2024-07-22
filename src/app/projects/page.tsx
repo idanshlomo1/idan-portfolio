@@ -38,20 +38,21 @@ const ProjectsPage = () => {
 
     return (
         <div className='bg-black-1'>
-            <MaxWidthWrapper className="py-20 ">
-                <Button
-                    className="mb-20 rounded-full"
+               <Button
+                    className="mt-6 ml-6 rounded-full"
                     variant={'glow'}
                     onClick={() => router.push("/")}
                 >
                     <ArrowLeftCircleIcon />
                 </Button>
+            <MaxWidthWrapper className="py-20 ">
+             
                 <h1 className="text-5xl textGradient text-center lg:text-7xl font-light">
                     All Projects
                 </h1>
                 <div className="bgGradient h-[1px] mt-4 rounded-full max-w-md mx-auto"></div>
 
-                <div className='flex items-center justify-center max-w-xl mx-auto mt-12 '>
+                <div className='flex items-center justify-center max-w-[400px] lg:max-w-xl mx-auto mt-12 '>
                     <Input
                         placeholder="Search projects by name..."
                         onChange={e => setSearchTerm(e.target.value)}
@@ -60,7 +61,7 @@ const ProjectsPage = () => {
                     <IoMdSearch size={20} className='mx-4 text-gray-4' />
                 </div>
 
-                <div className="mt-12 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                <div className="mt-12 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 max-w-[400px] md:max-w-max mx-auto gap-8">
                     {filteredProjects.map((project) => (
                         <ProjectCard key={project.slug} project={project} />
                     ))}

@@ -4,7 +4,7 @@ const Loader = () => {
     const pathname = usePathname();
 
     return (
-        <div className="h-screen w-full flex items-center justify-center">
+        <div className="h-screen w-full flex items-center bg-black-1 justify-center">
             <div className="terminal-loader">
                 <div className="terminal-header">
                     <div className="terminal-title">{pathname}</div>

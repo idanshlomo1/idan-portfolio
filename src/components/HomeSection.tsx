@@ -28,7 +28,7 @@ const HomeSection = () => {
 
 
   return (
-    <div id="Home" className="pt-40 md:pt-64 min-h-screen">
+    <div id="Home" className="pt-40 md:pt-40 min-h-screen">
       <div className="flex flex-col md:flex-row justify-between items-center" >
         <div>
           <div className="max-w-2xl">
@@ -77,11 +77,12 @@ const HomeSection = () => {
 
           </div>
         </div>
-        <div>
+        
+        <div >
           <Image
-            src="/logo.png"
+            src="/phone.png"
             alt="programming image"
-            width={170}
+            width={350}
             height={170}
             className="mt-8 md:mt-0 mx-auto p-4"
           />

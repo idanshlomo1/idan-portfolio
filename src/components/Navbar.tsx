@@ -65,7 +65,7 @@ const Navbar = () => {
             <MaxWidthWrapper className="max-w-screen-lg z-navbar ">
                 {/* md+ screens nav */}
                 <div className="hidden md:block  ">
-                    <div className="flex justify-between items-center  p-4 m-4 border-[1px] border-gray-3 rounded-full bg-black-2 ">
+                    <div className="flex justify-between items-center  p-4 m-4 border-[1px]  border-gray-3 rounded-full bg-black-2/90 ">
                         <a
                             href="/">
                             <Image
@@ -126,7 +126,7 @@ const Navbar = () => {
 
                 {/* sm screen nav */}
                 <div className="md:hidden  ">
-                    <div className="flex justify-between items-center border- p-4 m-4 border-[1px] border-gray-3  rounded-full bg-black-2  ">
+                    <div className="flex justify-between items-center border- p-4 m-4 border-[1px] border-gray-3  rounded-full bg-black-2/90  ">
                         <a
                             href="/">
                             <Image

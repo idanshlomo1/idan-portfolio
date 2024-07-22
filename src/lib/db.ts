@@ -34,7 +34,7 @@ const projectsArr: Project[] = [
     },
 
     {
-        title: "Moove Media Landing page",
+        title: "Moove Media Page",
         description: "This landing page, built using React and Tailwind CSS, uniquely showcases the services of Moove Media, a digital marketing agency specializing in business strategy and video editing. It features a distinctive design, an engaging interface, and an interactive gallery that highlights the essence of their work. The site is fully responsive, providing a seamless experience on all devices and reflecting my capability to deliver customized and visually compelling digital solutions tailored to their professional needs.",
         tags: ["react", "tailwind-css", "frontend"],
         githubUrl: "https://github.com/idanshlomo1/landingpage-stav-smadar",
@@ -42,6 +42,7 @@ const projectsArr: Project[] = [
         livePreviewUrl: "https://moovemedia.co.il/",
         slug: "4"
     },
+
     // {
     //     title: "Project Three",
     //     description: "this is three description",

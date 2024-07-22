@@ -22,7 +22,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     }, [project.imageUrl]);
 
     return (
-        <div className="text-gray-4 border-[1px] border-gray-3 bg-black-2 hover:bg-black-2 shadow-2xl  rounded-lg p-4 duration-300">
+        <div className="text-gray-4 border-[1px] border-gray-3 bg-black-2 hover:bg-black-2 hover:shadow-xl shadow-black-2  rounded-lg p-4 duration-300">
             {!imageLoaded ? (
                 <div className="flex flex-col space-y-3">
                     <Skeleton className="w-full h-56 rounded-lg" />
@@ -49,9 +49,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                             </Button>
                         </a>
                     )}
-                    <a href={project.livePreviewUrl} target="_blank" rel="noopener noreferrer">
-                        <Button variant={"idan"}>
-                            <HiOutlineComputerDesktop size={25} /><span className="ml-2">Live Preview</span>
+                    <a  href={project.livePreviewUrl} target="_blank" rel="noopener noreferrer">
+                        <Button  variant={"idan"}>
+                            <HiOutlineComputerDesktop className="animate-pulse text-red-500" size={25} /><span className="ml-2">Live Preview</span>
                         </Button>
                     </a>
                 </div>

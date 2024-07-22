@@ -28,6 +28,10 @@ const config = {
           1: '#0D0D0D', //background 
           2: '#131313', //background of nav and buttons
         },
+        blue: {
+          1: '#63CEFF',
+          2: '#0086FF',
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

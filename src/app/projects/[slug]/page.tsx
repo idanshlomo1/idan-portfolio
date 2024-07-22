@@ -32,7 +32,12 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
         const fetchData = async () => {
             try {
                 const fetchedProject = await getProject(slug);
-                setProject(fetchedProject);
+                if (fetchedProject) {
+                    setProject(fetchedProject);
+                } else {
+                    // Project not found, redirect to projects
+                    router.back();
+                }
             } catch (error) {
                 console.error("Failed to fetch project:", error);
                 router.push("/projects");
@@ -54,12 +59,15 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
 
     return (
         <div className="bg-black-1">
+            <Button
+                variant={"glow"}
+                className="mt-6 ml-6 rounded-full"
+                onClick={() => router.push("/projects")}
+            >
+                <ArrowLeftCircleIcon />
+            </Button>
             <MaxWidthWrapper className="py-20">
-                <Button
-                    variant={"glow"}
-                    className="mb-20 rounded-full" onClick={() => router.push("/projects")}>
-                    <ArrowLeftCircleIcon />
-                </Button>
+
 
                 <h1 className="text-4xl text-left lg:text-6xl font-light text-white">
                     {project.title}
@@ -110,8 +118,8 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
                     <Link href="/projects">
                         <Button
                             variant={"glow"}
-
-                            className='rounded-full' >
+                            className="rounded-full"
+                        >
                             <ArrowLeftCircleIcon className="mr-2" size={20} /> All Projects
                         </Button>
                     </Link>
@@ -119,6 +127,6 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
             </MaxWidthWrapper>
         </div>
     );
-}
+};
 
 export default SingleProjectPage;
