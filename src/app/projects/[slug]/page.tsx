@@ -108,7 +108,7 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
                     )}
                     <a href={project.livePreviewUrl} target="_blank" rel="noopener noreferrer">
                         <Button variant={"idan"}>
-                            <HiOutlineComputerDesktop size={25} /><span className="ml-2">Live Preview</span>
+                            <HiOutlineComputerDesktop className="animate-pulse text-red-500" size={25} /><span className="ml-2">Live Preview</span>
                         </Button>
                     </a>
                 </div>
