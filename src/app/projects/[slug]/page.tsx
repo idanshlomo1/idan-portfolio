@@ -3,13 +3,12 @@
 import Loader from "@/components/Loader";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { Button } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { getProject } from "@/lib/db";
 import { Project } from "@/lib/types";
 import { ArrowLeftCircleIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Corrected import for useRouter
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HiOutlineComputerDesktop } from "react-icons/hi2";
 import { IoLogoGithub } from "react-icons/io";
@@ -26,7 +25,7 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
     const router = useRouter();
     const [project, setProject] = useState<Project | null>(null);
     const [showFullDescription, setShowFullDescription] = useState(false);
-    const [isLoading, setIsLoading] = useState(true); // New state for loading
+    const [isLoading, setIsLoading] = useState(true);
     const { slug } = params;
 
     useEffect(() => {
@@ -36,39 +35,40 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
                 setProject(fetchedProject);
             } catch (error) {
                 console.error("Failed to fetch project:", error);
-                // Redirect if there's an error
+                router.push("/projects");
             } finally {
-                setIsLoading(false); // Set loading to false after data is fetched
+                setIsLoading(false);
             }
         };
 
         fetchData();
-    }, [slug, router]); // Added router to the dependency array
+    }, [slug, router]);
 
     if (isLoading) {
-        return <Loader />; // Display a loading state while fetching data
+        return <Loader />;
     }
 
     if (!project) {
-        router.push("/projects");
-        return null; // Return null if there's no project to render
+        return null;
     }
 
     return (
-        <div>
+        <div className="bg-black-1">
             <MaxWidthWrapper className="py-20">
-                <Button className="mb-20" variant="ghost" onClick={() => router.push("/projects")}>
+                <Button
+                    variant={"glow"}
+                    className="mb-20 rounded-full" onClick={() => router.push("/projects")}>
                     <ArrowLeftCircleIcon />
                 </Button>
 
-                <h1 className="text-4xl text-left lg:text-6xl font-light">
+                <h1 className="text-4xl text-left lg:text-6xl font-light text-white">
                     {project.title}
                 </h1>
-                <p className="mt-4 text-muted-foreground text-sm lg:text-lg">
+                <p className="mt-4 text-gray-1 text-sm lg:text-lg">
                     {showFullDescription ? project.description : `${project.description.substring(0, 200)}...`}
                     {project.description.length > 100 && (
                         <a
-                            className="text-xs lg:text-sm cursor-pointer ml-2 underline text-primary hover:text-muted-foreground duration-300"
+                            className="text-xs lg:text-sm cursor-pointer ml-2 underline text-gray-4 hover:text-gray-1 duration-300"
                             onClick={() => setShowFullDescription(!showFullDescription)}
                         >
                             {showFullDescription ? 'Read Less' : 'Read More'}
@@ -85,44 +85,34 @@ const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
                 />
                 <div className="mt-4">
                     {project.tags.map((tag, index) => (
-                        <span key={index} className="inline-block bg-primary-foreground rounded-full px-3 py-1 text-sm font-semibold text-muted-foreground mr-2 mb-2">
+                        <span key={index} className="inline-block bg-black-1 rounded-full px-3 py-1 text-[12px] font-semibold text-gray-1 mr-2">
                             #{tag}
                         </span>
                     ))}
                 </div>
                 <div className="mt-4 space-x-4">
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger>
-                                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                                    <Button variant="ghost"><IoLogoGithub size={25} /></Button>
-                                </a>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <p>View on Github</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
-
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger>
-                                <a href={project.livePreviewUrl} target="_blank" rel="noopener noreferrer">
-                                    <Button variant="ghost"><HiOutlineComputerDesktop size={25} /></Button>
-                                </a>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <p>View live preview</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
+                    {project.githubUrl && (
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Button variant={"idan"}>
+                                <IoLogoGithub size={25} /> <span className="ml-2">View Code</span>
+                            </Button>
+                        </a>
+                    )}
+                    <a href={project.livePreviewUrl} target="_blank" rel="noopener noreferrer">
+                        <Button variant={"idan"}>
+                            <HiOutlineComputerDesktop size={25} /><span className="ml-2">Live Preview</span>
+                        </Button>
+                    </a>
                 </div>
 
-                <div className="border-t-[1px] mt-8"></div>
+                <div className="border-t-[1px] mt-8 border-gray-3"></div>
                 <div className="mt-8 text-center">
                     <Link href="/projects">
-                        <Button className='rounded-full' variant="ghost">
-                            View All Projects
+                        <Button
+                            variant={"glow"}
+
+                            className='rounded-full' >
+                            <ArrowLeftCircleIcon className="mr-2" size={20} /> All Projects
                         </Button>
                     </Link>
                 </div>

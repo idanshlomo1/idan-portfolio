@@ -65,7 +65,7 @@ const Navbar = () => {
             <MaxWidthWrapper className="max-w-screen-lg z-navbar ">
                 {/* md+ screens nav */}
                 <div className="hidden md:block  ">
-                    <div className="flex justify-between items-center border-secondary p-4 m-4 border-2 rounded-full bg-background ">
+                    <div className="flex justify-between items-center  p-4 m-4 border-[1px] border-gray-3 rounded-full bg-black-2 ">
                         <a
                             href="/">
                             <Image
@@ -81,7 +81,7 @@ const Navbar = () => {
                         <div className="mx-4">
                             {linksData.map((linkData) => (
                                 <a
-                                    className="text-muted-foreground hover:text-primary duration-200 mx-4"
+                                    className="text-gray-1 hover:text-white duration-200 mx-4"
                                     key={linkData.title}
                                     href={`#${linkData.title}`}
                                     onClick={(e) => smoothScroll(e, linkData.title)}
@@ -108,13 +108,13 @@ const Navbar = () => {
                         {/* <ModeToggle /> */}
 
                         <div className="flex items-center justify-center space-x-4 mr-4 ">
-                            <a className="text-muted-foreground hover:text-primary duration-200" href="https://www.instagram.com/idan_shlomo1/" target="_blank" rel="noopener noreferrer">
+                            <a className="text-gray-1 hover:text-white duration-200" href="https://www.instagram.com/idan_shlomo1/" target="_blank" rel="noopener noreferrer">
                                 <IoLogoInstagram size={25} />
                             </a>
-                            <a className="text-muted-foreground hover:text-primary duration-200" href="https://github.com/idanshlomo1" target="_blank" rel="noopener noreferrer">
+                            <a className="text-gray-1 hover:text-white duration-200" href="https://github.com/idanshlomo1" target="_blank" rel="noopener noreferrer">
                                 <IoLogoGithub size={25} />
                             </a>
-                            <a className="text-muted-foreground hover:text-primary duration-200" href="https://wa.me/972538250965" target="_blank" rel="noopener noreferrer">
+                            <a className="text-gray-1 hover:text-white duration-200" href="https://wa.me/972538250965" target="_blank" rel="noopener noreferrer">
                                 <FaWhatsapp size={25} />
                             </a>
 
@@ -126,7 +126,7 @@ const Navbar = () => {
 
                 {/* sm screen nav */}
                 <div className="md:hidden  ">
-                    <div className="flex justify-between items-center border-secondary p-4 m-4 border-2  rounded-full bg-background ">
+                    <div className="flex justify-between items-center border- p-4 m-4 border-[1px] border-gray-3  rounded-full bg-black-2  ">
                         <a
                             href="/">
                             <Image
@@ -155,7 +155,7 @@ const Navbar = () => {
 
 
                     {open &&
-                        <div className="flex flex-col justify-between items-center border-secondary p-4 m-4 border-2 bg-background  rounded-3xl ">
+                        <div className="flex flex-col justify-between items-center border-gray-3 p-4 m-4 border-[1px] bg-black-2  rounded-3xl ">
                             <div className=" flex flex-col px-4 w-full">
                                 {linksData.map((linkData, index) => (
                                     <a
@@ -163,7 +163,7 @@ const Navbar = () => {
                                             setOpen(prev => !prev);
                                             smoothScroll(e, linkData.title);
                                         }}
-                                        className={`text-muted-foreground hover:text-primary duration-200  py-4 w-full ${index !== 0 ? "border-t-2 border-secondary" : ""
+                                        className={`text-gray-1 hover:text-white duration-200  py-4 w-full ${index !== 0 ? "border-t-2 border-gray-3" : ""
                                             }`}
                                         key={linkData.title}
                                         href={`#${linkData.title}`}
@@ -184,7 +184,7 @@ const Navbar = () => {
 
                             <Button
                                 className="rounded-full mx-4 flex items-center mt-4 w-full "
-                                variant={"default"}
+                                variant={"idan"}
                                 onClick={handleDownloadCV}
 
                             >
@@ -193,13 +193,13 @@ const Navbar = () => {
                             </Button>
 
                             <div className="flex items-center justify-center space-x-8 mt-8 mb-4 ">
-                                <a className="text-muted-foreground hover:text-primary duration-200" href="https://www.instagram.com/idan_shlomo1/" target="_blank" rel="noopener noreferrer">
+                                <a className="text-gray-1 hover:text-white duration-200" href="https://www.instagram.com/idan_shlomo1/" target="_blank" rel="noopener noreferrer">
                                     <IoLogoInstagram size={30} />
                                 </a>
-                                <a className="text-muted-foreground hover:text-primary duration-200" href="https://github.com/idanshlomo1" target="_blank" rel="noopener noreferrer">
+                                <a className="text-gray-1 hover:text-white  duration-200" href="https://github.com/idanshlomo1" target="_blank" rel="noopener noreferrer">
                                     <IoLogoGithub size={30} />
                                 </a>
-                                <a className="text-muted-foreground hover:text-primary duration-200" href="https://wa.me/972538250965" target="_blank" rel="noopener noreferrer">
+                                <a className="text-gray-1 hover:text-white  duration-200" href="https://wa.me/972538250965" target="_blank" rel="noopener noreferrer">
                                     <FaWhatsapp size={30} />
                                 </a>
 

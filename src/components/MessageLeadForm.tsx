@@ -85,10 +85,10 @@ const MessageLeadForm: React.FC = () => {
 
     return (
         <div className='mt-4'>
-            <div className="mx-auto px-8 py-10 pb-10 rounded-xl max-w-[1000px] border-2 border-secondary hover:border-muted-foreground duration-300">
+            <div className="mx-auto px-8 py-10 pb-10 rounded-xl max-w-[1000px] border-[1px] border-gray-3  duration-300">
                 <div>
                     <div className='mb-8'>
-                        <h1 className="text-center text-lg md:text-2xl font-extrabold text-secondary">
+                        <h1 className="text-center text-xl md:text-2xl font-light text-gray-1">
                             Lets work together
                         </h1>
 
@@ -126,14 +126,14 @@ const MessageLeadForm: React.FC = () => {
                         </div>
 
                         <div className="flex flex-col mb-4 md:justify-center max-w-[300px]">
-                            <label className="text-main text-lg my-2 font-bold" htmlFor="leadForm-subject">
+                            <label className="text-gray-1 text-lg my-2 " htmlFor="leadForm-subject">
                                 Interested in
                             </label>
                             <select
                                 id="leadForm-subject"
                                 value={formData.subject}
                                 onChange={handleSubjectChange}
-                                className="text-main bg-secondary px-2 py-1 rounded-full text-lg cursor-pointer font-bold"
+                                className="text-main bg-black-2 border-[1px] border-gray-3 text-gray-4 px-2 py-1 rounded-full text-lg cursor-pointer "
                             >
                                 <option value="Full stack project">Full stack project</option>
                                 <option value="Full stack project">Frontend project</option>
@@ -156,7 +156,7 @@ const MessageLeadForm: React.FC = () => {
                         </div>
 
                         <Button
-                            variant="default"
+                            variant={'glow'}
                             className="w-full text-xl rounded-full "
                             type="submit"
                             disabled={isSubmitting}

@@ -1,11 +1,10 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Skeleton } from "./ui/skeleton";  // Adjust the import path as necessary
+import { Skeleton } from "./ui/skeleton"; // Adjust the import path as necessary
 import { Button } from "./ui/button";
 import { IoLogoGithub } from "react-icons/io";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 import { HiOutlineComputerDesktop } from "react-icons/hi2";
 import { Project } from "@/lib/types";
 
@@ -23,12 +22,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     }, [project.imageUrl]);
 
     return (
-        <div className="border-2 hover:border-muted-foreground  rounded-lg p-4 duration-300 bg-gradient-to-tr from-background to-transparent">
+        <div className="text-gray-4 border-[1px] border-gray-3 bg-black-2 hover:bg-black-2 shadow-2xl  rounded-lg p-4 duration-300">
             {!imageLoaded ? (
                 <div className="flex flex-col space-y-3">
-                    <Skeleton className="w-full h-56   rounded-lg" />
-                    <div className="space-y-2">
-                    </div>
+                    <Skeleton className="w-full h-56 rounded-lg" />
                 </div>
             ) : (
                 <img
@@ -38,50 +35,36 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                     onLoad={() => setImageLoaded(true)}
                 />
             )}
-            <h2 className="text-2xl mt-4">{project.title}</h2>
-            {/* <p className="mt-2 text-muted-foreground">{project.description}</p> */}
+            <h2 className="text-2xl mt-4 text-white">{project.title}</h2>
+
+            <div className="mt-4 flex flex-col justify-between space-y-4">
+                <Link href={`/projects/${project.slug}`}>
+                    <Button variant={"idan"} className=" w-full">Read More</Button>
+                </Link>
+                <div className="space-x-4">
+                    {project.githubUrl && (
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Button variant={"idan"}>
+                                <IoLogoGithub size={25} /> <span className="ml-2">View Code</span>
+                            </Button>
+                        </a>
+                    )}
+                    <a href={project.livePreviewUrl} target="_blank" rel="noopener noreferrer">
+                        <Button variant={"idan"}>
+                            <HiOutlineComputerDesktop size={25} /><span className="ml-2">Live Preview</span>
+                        </Button>
+                    </a>
+                </div>
+            </div>
             <div className="mt-4">
                 {project.tags.map((tag, index) => (
-                    <span key={index} className="inline-block bg-primary-foreground rounded-full px-3 py-1 text-sm font-semibold text-muted-foreground mr-2 mb-2">
+                    <span key={index} className="inline-block bg-black-1 rounded-full px-3 py-1 text-[12px] font-semibold text-gray-1 mr-2">
                         #{tag}
                     </span>
                 ))}
             </div>
-            <div className="h-[1px] bg-secondary mb-1 mt-2"></div>
-            <div className="mt-4 flex justify-between ">
-                <Link href={`/projects/${project.slug}`}>
-                    <Button variant="ghost">Read More</Button>
-                </Link>
-                <div>
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                                    <Button variant="ghost"><IoLogoGithub size={25} /></Button>
-                                </a>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <p>View on GitHub</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
-
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <a href={project.livePreviewUrl} target="_blank" rel="noopener noreferrer">
-                                    <Button variant="ghost"><HiOutlineComputerDesktop size={25} /></Button>
-                                </a>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <p>View live preview</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
-                </div>
-            </div>
         </div>
-    )
-}
+    );
+};
 
-export default ProjectCard
+export default ProjectCard;

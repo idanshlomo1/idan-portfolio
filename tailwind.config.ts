@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -19,6 +19,15 @@ const config = {
     },
     extend: {
       colors: {
+        gray: {
+          1: '#929497', //subtext
+          3: '#262626', //border
+          4: '#cccccc', //text of buttons
+        },
+        black: {
+          1: '#0D0D0D', //background 
+          2: '#131313', //background of nav and buttons
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -71,6 +80,10 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(to right, #DED9D6, #8B878D, #F3F4F4, #807B80, #A7A9AC)',
+
       },
     },
   },

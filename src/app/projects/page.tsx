@@ -37,16 +37,16 @@ const ProjectsPage = () => {
     }
 
     return (
-        <div>
-            <MaxWidthWrapper className="py-20">
+        <div className='bg-black-1'>
+            <MaxWidthWrapper className="py-20 ">
                 <Button
-                    className="mb-20"
-                    variant="ghost"
+                    className="mb-20 rounded-full"
+                    variant={'glow'}
                     onClick={() => router.push("/")}
                 >
                     <ArrowLeftCircleIcon />
                 </Button>
-                <h1 className="text-5xl text-center lg:text-7xl font-light">
+                <h1 className="text-5xl textGradient text-center lg:text-7xl font-light">
                     All Projects
                 </h1>
                 <div className="bgGradient h-[1px] mt-4 rounded-full max-w-md mx-auto"></div>
@@ -55,9 +55,9 @@ const ProjectsPage = () => {
                     <Input
                         placeholder="Search projects by name..."
                         onChange={e => setSearchTerm(e.target.value)}
-                        className="duration-300 rounded-full"
+                        className="duration-300 bg-black-1 rounded-full"
                     />
-                    <IoMdSearch size={20} className='mx-4' />
+                    <IoMdSearch size={20} className='mx-4 text-gray-4' />
                 </div>
 
                 <div className="mt-12 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">

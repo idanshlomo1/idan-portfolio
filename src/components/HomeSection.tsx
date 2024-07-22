@@ -32,22 +32,22 @@ const HomeSection = () => {
       <div className="flex flex-col md:flex-row justify-between items-center" >
         <div>
           <div className="max-w-2xl">
-            <h1 className="text-4xl text-center md:text-left lg:text-7xl font-light">
+            <h1 className="text-5xl textGradient text-center md:text-left md:text-5xl lg:text-7xl font-light text-white">
               Idan Shlomo
             </h1>
-            <h1 className="text-4xl text-center md:text-left lg:text-6xl font-light mt-2">
-              Full stack developer
+            <h1 className="text-3xl textGradient text-center md:text-left md:text-4xl lg:text-6xl font-light mt-2 text-white">
+              Full Stack Developer
             </h1>
             <div className="bgGradient h-[1px] mt-4 rounded-full">
             </div>
-            <p className="text-muted-foreground text-center md:text-left  mt-4 ">
+            <p className="text-gray-1 text-center md:text-left  mt-4 ">
               As a 19-year-old full-stack developer, I excel in building dynamic web applications that bridge user needs with cutting-edge technology. My drive for innovation and mastery in coding fuels my passion for delivering impactful solutions.            </p>
           </div>
           <div className="mt-8 flex flex-col md:flex-row items-center">
 
             <Button
-              className="w-full md:w-auto rounded-full flex items-center "
-              variant={"default"}
+              variant={"idan"}
+              className="w-full  md:w-auto rounded-full flex items-center "
               onClick={handleDownloadCV}
 
             >
@@ -60,12 +60,10 @@ const HomeSection = () => {
             </Button>
 
 
-
-
-
             <Button
+              variant={"glow"}
               onClick={(e) => smoothScroll(e, "Projects")}
-              variant={"ghost"} className="w-full md:w-auto mt-4 md:mt-0 rounded-full flex items-center md:ml-4">
+              className="w-full md:w-auto mt-4 md:mt-0 rounded-full flex items-center md:ml-4">
               <p
 
               >
@@ -83,8 +81,8 @@ const HomeSection = () => {
           <Image
             src="/logo.png"
             alt="programming image"
-            width={220}
-            height={220}
+            width={170}
+            height={170}
             className="mt-8 md:mt-0 mx-auto p-4"
           />
 

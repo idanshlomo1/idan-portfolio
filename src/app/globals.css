@@ -86,7 +86,7 @@
 
 .line {
   fill: none;
-  stroke: var(--hamburger-color, black);
+  stroke: var(--hamburger-color, white);
   /* Default to dark */
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -109,19 +109,36 @@
   stroke-dashoffset: -32.42;
 }
 
-.dark .line {
-  stroke: white;
-  /* White in dark mode */
-}
 
 .z-navbar {
   z-index: 100;
 }
 
 .bgGradient {
-  background: linear-gradient(to right, #4B8FAF, #0780F4, #F90809, #777E86, #02EEFA);
+  background: linear-gradient(to right, #DED9D6, #8B878D, #F3F4F4, #807B80, #A7A9AC);
 
 }
+
+.textGradient {
+  background: linear-gradient(to right, #DED9D6, #8B878D, #F3F4F4, #807B80, #A7A9AC);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+/* .textGradient {
+  background: linear-gradient(to right, #ABABA1, #BEBEB5, #E4E4DC, #EAEAE1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+} */
+
+/* .textGradientSilver {
+  background: linear-gradient(to right, #DED9D6, #8B878D, #F3F4F4, #807B80, #A7A9AC);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+} */
+
 
 
 

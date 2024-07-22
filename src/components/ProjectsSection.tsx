@@ -9,6 +9,7 @@ import { SiFacebooklive, SiLivechat, SiLivewire } from 'react-icons/si';
 import { HiOutlineComputerDesktop } from "react-icons/hi2";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 import ProjectCard from './ProjectCard';
+import { ArrowRightCircleIcon } from 'lucide-react';
 
 const ProjectsSection = () => {
     const [projects, setProjects] = useState<Project[]>([]);
@@ -36,11 +37,11 @@ const ProjectsSection = () => {
     return (
         <div id="Projects" className="pt-40 min-h-screen">
             <div className="max-w-6xl mx-auto">
-                <h1 className="text-5xl text-center lg:text-7xl font-light">
+                <h1 className="text-5xl textGradient text-center lg:text-7xl font-light">
                     Recent Projects
                 </h1>
                 <div className="bgGradient h-[1px] mt-4 rounded-full max-w-2xl mx-auto"></div>
-                <p className="text-muted-foreground text-center mt-4">
+                <p className="text-gray-1 text-center mt-4">
                     A showcase of my recent work
                 </p>
 
@@ -52,8 +53,10 @@ const ProjectsSection = () => {
 
                 <div className="mt-8 text-center">
                     <Link href="/projects">
-                        <Button className='rounded-full' variant="ghost">
-                            View All Projects
+                        <Button
+                        variant={'glow'}
+                        className='rounded-full' >
+                            All Projects                      <ArrowRightCircleIcon className="ml-2" size={20} />
                         </Button>
                     </Link>
                 </div>
