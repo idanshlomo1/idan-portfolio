@@ -28,6 +28,7 @@ const HomeSection = () => {
 
 
   return (
+
     <div id="Home" className="pt-40 md:pt-40 min-h-screen">
       <div className="flex flex-col md:flex-row justify-between items-center" >
         <div>
@@ -77,7 +78,7 @@ const HomeSection = () => {
 
           </div>
         </div>
-        
+
         <div >
           <Image
             src="/phone.png"

@@ -1,17 +1,6 @@
-"use client";
-
-import Loader from "@/components/Loader";
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import { Button } from "@/components/ui/button";
+import SingleProjectPageClient from "@/components/SingleProjectPageClient";
 import { getProject } from "@/lib/db";
-import { Project } from "@/lib/types";
-import { ArrowLeftCircleIcon } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { HiOutlineComputerDesktop } from "react-icons/hi2";
-import { IoLogoGithub } from "react-icons/io";
+import { Metadata } from "next";
 
 interface Params {
     slug: string;
@@ -21,112 +10,37 @@ interface SingleProjectPageProps {
     params: Params;
 }
 
-const SingleProjectPage = ({ params }: SingleProjectPageProps) => {
-    const router = useRouter();
-    const [project, setProject] = useState<Project | null>(null);
-    const [showFullDescription, setShowFullDescription] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+const NEXT_PUBLIC_URL = process.env.NEXT_PUBLIC_URL;
+
+export const generateMetadata = async ({ params }: SingleProjectPageProps): Promise<Metadata> => {
     const { slug } = params;
+    const project = await getProject(slug);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const fetchedProject = await getProject(slug);
-                if (fetchedProject) {
-                    setProject(fetchedProject);
-                } else {
-                    // Project not found, redirect to projects
-                    router.back();
-                }
-            } catch (error) {
-                console.error("Failed to fetch project:", error);
-                router.push("/projects");
-            } finally {
-                setIsLoading(false);
-            }
-        };
+    return {
+        title: project ? `${project.title} | My Portfolio` : "Project | My Portfolio",
+        description: project ? project.description.substring(0, 160) : "Project description",
+        openGraph: {
+            title: project ? project.title : "Project",
+            description: project ? project.description.substring(0, 160) : "Project description",
+            images: project ? [{ url: project.imageUrl }] : [],
+            url: project ? `${NEXT_PUBLIC_URL}/projects/${slug}` : NEXT_PUBLIC_URL,
+        },
+        twitter: {
+            card: "summary_large_image",
+        },
+    };
+};
 
-        fetchData();
-    }, [slug, router]);
-
-    if (isLoading) {
-        return <Loader />;
-    }
+const SingleProjectPage = async ({ params }: SingleProjectPageProps) => {
+    const { slug } = params;
+    const project = await getProject(slug);
 
     if (!project) {
-        return null;
+        // Handle project not found
+        return <div>Project not found</div>;
     }
 
-    return (
-        <div className="bg-black-1">
-            <Button
-                variant={"glow"}
-                className="mt-6 ml-6 rounded-full"
-                onClick={() => router.push("/projects")}
-            >
-                <ArrowLeftCircleIcon />
-            </Button>
-            <MaxWidthWrapper className="py-20">
-
-
-                <h1 className="text-4xl text-left lg:text-6xl font-light text-white">
-                    {project.title}
-                </h1>
-                <p className="mt-4 text-gray-1 text-sm lg:text-lg">
-                    {showFullDescription ? project.description : `${project.description.substring(0, 200)}...`}
-                    {project.description.length > 100 && (
-                        <a
-                            className="text-xs lg:text-sm cursor-pointer ml-2 underline text-gray-4 hover:text-gray-1 duration-300"
-                            onClick={() => setShowFullDescription(!showFullDescription)}
-                        >
-                            {showFullDescription ? 'Read Less' : 'Read More'}
-                        </a>
-                    )}
-                </p>
-
-                <Image
-                    src={project.imageUrl}
-                    alt={project.title}
-                    height={50}
-                    width={200}
-                    className="w-full mt-4 h-96 object-cover rounded-lg"
-                />
-                <div className="mt-4">
-                    {project.tags.map((tag, index) => (
-                        <span key={index} className="inline-block bg-black-1 rounded-full px-3 py-1 text-[12px] font-semibold text-gray-1 mr-2">
-                            #{tag}
-                        </span>
-                    ))}
-                </div>
-                <div className="mt-4 space-x-4">
-                    {project.githubUrl && (
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                            <Button variant={"idan"}>
-                                <IoLogoGithub size={25} /> <span className="ml-2">View Code</span>
-                            </Button>
-                        </a>
-                    )}
-                    <a href={project.livePreviewUrl} target="_blank" rel="noopener noreferrer">
-                        <Button variant={"idan"}>
-                            <HiOutlineComputerDesktop className="animate-pulse text-red-500" size={25} /><span className="ml-2">Live Preview</span>
-                        </Button>
-                    </a>
-                </div>
-
-                <div className="border-t-[1px] mt-8 border-gray-3"></div>
-                <div className="mt-8 text-center">
-                    <Link href="/projects">
-                        <Button
-                            variant={"glow"}
-                            className="rounded-full"
-                        >
-                            <ArrowLeftCircleIcon className="mr-2" size={20} /> All Projects
-                        </Button>
-                    </Link>
-                </div>
-            </MaxWidthWrapper>
-        </div>
-    );
+    return <SingleProjectPageClient project={project} />;
 };
 
 export default SingleProjectPage;
