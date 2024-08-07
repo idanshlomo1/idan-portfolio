@@ -61,8 +61,8 @@ const Navbar = () => {
 
 
     return (
-        <div className="fixed top-0 left-0 right-0 ">
-            <MaxWidthWrapper className="max-w-screen-lg z-navbar ">
+        <div className="fixed top-0 left-0 right-0 z-navbar ">
+            <MaxWidthWrapper className="max-w-screen-lg  ">
                 {/* md+ screens nav */}
                 <div className="hidden md:block  ">
                     <div className="flex justify-between items-center  p-4 m-4 border-[1px]  border-gray-3 rounded-full bg-black-2/90 ">

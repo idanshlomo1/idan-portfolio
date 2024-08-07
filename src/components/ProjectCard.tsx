@@ -23,7 +23,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     }, [project.imageUrl]);
 
     return (
-        <div className="text-gray-4 border-[1px] border-gray-3 bg-black-2 hover:bg-black-2 hover:shadow-xl shadow-black-2 rounded-lg p-4 duration-300">
+        <div className="text-gray-4 border-[1px] border-gray-3 bg-black-2 hover:bg-black-2 hover:shadow-xl shadow-black-2 rounded-lg p-4 duration-300 hover:translate-y-[-8px]">
             <div className="relative">
                 {!imageLoaded ? (
                     <Skeleton className="w-full h-56 rounded-lg" />
